@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="renting_springboot:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>renting_springboot</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="renting_springboot-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="renting_springboot:war exploded" />
+    </root>
+  </artifact>
+</component>
