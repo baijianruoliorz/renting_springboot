@@ -10,7 +10,7 @@ import com.usc.renting.pojo.Householder;
 
 public interface HouseDAO extends JpaRepository<House, Integer>{
 
-    // 接收HouseHolder对象和Pageable对象，获取Page集合
+
     Page<House> findByHouseholder(Householder householder, Pageable pageable);
 
     // List<House> findByHouseholder(Householder householder);
