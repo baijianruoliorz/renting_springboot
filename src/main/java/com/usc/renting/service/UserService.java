@@ -33,18 +33,26 @@ public class UserService {
 
     // 查询用户所有分页信息
     public Page4Navigator<User> list(int start, int size, int navigatePages) {
-        Sort sort = new Sort(Sort.Direction.DESC, "id");
-        Pageable pageable = new PageRequest(start, size, sort);
-        Page pageFromJPA =userDAO.findAll(pageable);
-        return new Page4Navigator<>(pageFromJPA, navigatePages);
+//        Sort sort = new Sort(Sort.Direction.DESC, "id");
+//        Pageable pageable = new PageRequest(start, size, sort);
+//        Page pageFromJPA =userDAO.findAll(pageable);
+//        return new Page4Navigator<>(pageFromJPA, navigatePages);
+        Sort sort =new Sort(Sort.Direction.DESC,"id");
+        Pageable pageable=new PageRequest(start,size,sort);
+        Page pageFromJPA=userDAO.findAll(pageable);
+        return new Page4Navigator<>(pageFromJPA,navigatePages);
     }
 
     // 根据用户等级查询所有分页信息
     public Page4Navigator<User> list1(int start, int size, int navigatePages,String position) {
-        Sort sort = new Sort(Sort.Direction.DESC, "id");
-        Pageable pageable = new PageRequest(start, size, sort);
-        Page pageFromJPA = userDAO.findAllByPositionEquals(pageable, position);
-        return new Page4Navigator<>(pageFromJPA, navigatePages);
+//        Sort sort = new Sort(Sort.Direction.DESC, "id");
+//        Pageable pageable = new PageRequest(start, size, sort);
+//        Page pageFromJPA = userDAO.findAllByPositionEquals(pageable, position);
+//        return new Page4Navigator<>(pageFromJPA, navigatePages);
+        Sort sort =new Sort(Sort.Direction.DESC,"id");
+        Pageable pageable=new PageRequest(start,size,sort);
+        Page pageFromJPA=userDAO.findAllByPositionEquals(pageable,position);
+        return new Page4Navigator<>(pageFromJPA,navigatePages);
     }
 
     // 用于注册，根据tel判断是否存在该user
