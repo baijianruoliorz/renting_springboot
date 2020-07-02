@@ -7,10 +7,12 @@ import com.usc.renting.pojo.User;
 import java.util.List;
 
 public interface MessageDAO extends JpaRepository<Message, Integer> {
+
+    @Override
     List<Message> findAll();
 
     List<Message> findAllByUserOrderByIdDesc(User user);
-
+  
     int countByUser(User user);
 
     int countByIdNot(int id);
