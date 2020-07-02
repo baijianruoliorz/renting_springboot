@@ -10,8 +10,9 @@ import java.util.List;
 public interface CommentFirstDAO extends JpaRepository<CommentFirst, Integer> {
     List<CommentFirst> findAllByMessageOrderByCreatetimeDesc(Message message);
 
-    int countByIdNot(int id);
+//    int countByIdNot(int id);
 
+    int countByIdNot(int id);
     int countByUser(User user);
 
     void deleteAllByMessage(Message message);
