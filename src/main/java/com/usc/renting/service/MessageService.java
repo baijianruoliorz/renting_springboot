@@ -54,15 +54,25 @@ public class MessageService {
     // 获取总评论数前20的信息
     public List<Message> findAllMessageTop20() {
         // 获取所有信息
-        List<Message> messages = messageDAO.findAll();
-        // 依次遍历每个信息
+//        List<Message> messages = messageDAO.findAll();
+//         // 依次遍历每个信息
+//        for (Message message : messages) {
+//            int sum = 0;
+//            List<CommentFirst> commentFirsts = commentFirstService.findAllByMessage(message);
+//            for (CommentFirst commentFirst : commentFirsts) {
+//                sum = sum + commentFirst.getComment_count();
+//            }
+//            sum = sum + message.getComment_count();
+//            message.setSum(sum);
+//        }
+        List<Message> messages=messageDAO.findAll();
         for (Message message : messages) {
-            int sum = 0;
-            List<CommentFirst> commentFirsts = commentFirstService.findAllByMessage(message);
+            int sum=0;
+            List<CommentFirst> commentFirsts=commentFirstService.findAllByMessage(message);
             for (CommentFirst commentFirst : commentFirsts) {
-                sum = sum + commentFirst.getComment_count();
+                sum=sum+commentFirst.getComment_count();
             }
-            sum = sum + message.getComment_count();
+            sum=sum+message.getComment_count();
             message.setSum(sum);
         }
 
@@ -92,8 +102,15 @@ public class MessageService {
     // 删除该信息以及下面的所有评论
     @Transactional
     public void delete(Integer id) {
-        Message message = messageDAO.getOne(id);
-        List<CommentFirst> commentFirsts = commentFirstDAO.findAllByMessage(message);
+//        Message message = messageDAO.getOne(id);
+//        List<CommentFirst> commentFirsts = commentFirstDAO.findAllByMessage(message);
+//        for (CommentFirst commentFirst : commentFirsts) {
+//            commentSecondDAO.deleteAllByCommentFirst(commentFirst);
+//        }
+//        commentFirstDAO.deleteAllByMessage(message);
+//        messageDAO.delete(id);
+        Message message=messageDAO.getOne(id);
+        List<CommentFirst> commentFirsts=commentFirstDAO.findAllByMessage(message);
         for (CommentFirst commentFirst : commentFirsts) {
             commentSecondDAO.deleteAllByCommentFirst(commentFirst);
         }
