@@ -56,8 +56,9 @@ public class HouseImageService {
 
     // 接收一个house集合，依次对每个house对象设置第一张图片
     public void setFirstHouseImages(List<House> houses) {
-        for (House house : houses)
+        for (House house : houses) {
             setFirstHouseImage(house);
+        }
     }
 
     public void deleteAll(House house){
