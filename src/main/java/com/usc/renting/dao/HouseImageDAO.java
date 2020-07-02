@@ -12,5 +12,5 @@ public interface HouseImageDAO extends JpaRepository<HouseImage, Integer>{
     List<HouseImage> findByHouseAndTypeOrderByIdDesc(House house, String type);
 
     // 根据房子删除所有图片
-    void deleteAllByHouse(House house);
+     void deleteAllByHouse(House house);
 }
