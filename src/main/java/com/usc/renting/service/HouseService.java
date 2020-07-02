@@ -7,6 +7,8 @@ import com.usc.renting.pojo.Householder;
 import com.usc.renting.pojo.House;
 import com.usc.renting.util.Page4Navigator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +33,7 @@ public class HouseService {
     CollectionDAO collectionDAO;
     @Autowired
     ScanDAO scanDAO;
+
 
     public void add(House bean) {
         houseDAO.save(bean);
@@ -88,9 +91,11 @@ public class HouseService {
 
     // 接收一个House对象集合，依次给每个House对象设置评论数
     public void setReviewNumber(List<House> houses) {
-        for (House house : houses)
+        for (House house : houses) {
             setReviewNumber(house);
+        }
     }
+
 
     public List<House> findByHouseholder(Householder householder) {
         return houseDAO.findByHouseholder(householder);
