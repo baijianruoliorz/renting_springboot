@@ -19,12 +19,21 @@ public class Application {
     
 
     // 设置Session失效时间
+//    @Bean
+//    public EmbeddedServletContainerCustomizer containerCustomizer(){
+//        return new EmbeddedServletContainerCustomizer() {
+//            @Override
+//            public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
+//                configurableEmbeddedServletContainer.setSessionTimeout(86400);
+//            }
+//        };
+//    }
     @Bean
-    public EmbeddedServletContainerCustomizer containerCustomizer(){
+    public  EmbeddedServletContainerCustomizer containerCustomizer(){
         return new EmbeddedServletContainerCustomizer() {
             @Override
-            public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-                configurableEmbeddedServletContainer.setSessionTimeout(86400);
+            public void customize(ConfigurableEmbeddedServletContainer container) {
+                container.setSessionTimeout(86400);
             }
         };
     }
